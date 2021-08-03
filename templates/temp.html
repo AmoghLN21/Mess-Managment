@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-dark text-black">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+     <span class="navbar-brand" href="#">Logo</span>
+     <h4 class="mr-auto">
+         <span class="navbar-text ">
+               Mess Managment
+         </span>
+      </h4>
+      <ul class="navbar-nav justify-content-end pl-auto">
+         <li class="nav-item pr-3">
+            <a class="nav-link" href="#">Log In</a>
+         </li>
+        <li class="nav-item pr-3">
+            <a class="nav-link active" href="#">Register</a>
+        </li>
+      </ul>
+</nav>
+<div class="container-fluid mt-3">
+<h1>hi</h1>
+</div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+   {% if messages %}
+          {% for categories,message in messages %}
+              <div class="alert alert-danger alert-dismissible container">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{ message }}</strong>
+               </div>
+
+          {% endfor %}
+   {% endif %}
+{% endwith %}
+<div class=" w-25 mx-auto text-white">
+<form method="POST" class="form-register" style="color:white;">
+    {{ form.hidden_tag() }}
+
+    {{ form.name.label() }}
+    {{ form.name(class="form-control") }}
+    {{ form.id.label() }}
+    {{ form.id(class="form-control") }}
+    {{ form.age.label() }}
+    {{ form.age(class="form-control") }}
+    {{ form.sex.label() }}
+    {{ form.sex(class="form-control") }}
+    {{ form.roomno.label() }}
+    {{ form.roomno(class="form-control") }}
+    {{ form.email.label() }}
+    {{ form.email(class="form-control") }}
+    {{ form.password.label() }}
+    {{ form.password(class="form-control") }}
+    {{ form.cpassword.label() }}
+    {{ form.cpassword(class="form-control") }}
+    <br>
+    {{ form.submit(class="btn btn-warning px-3 ",style="margin-left:7.5vw;") }}
+</form>
+</div>
+</body>
+</html>

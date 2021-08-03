@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mess Managment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+       <style>
+.body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+.ig{
+    width: 120%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    animation: zoom-out 3s linear infinite;
+}
+@keyframes zoom-out{
+   100%{
+       width:100%;
+    }
+}
+.text{
+    width: 600px;
+    position: absolute;
+    left: 100px;
+    top: 150px;
+    color: azure;
+    animation: text-d 12s linear infinite;
+    transform: translateY(100px);
+}
+@keyframes text-d{
+    10%{
+         transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+.h1{
+    color: rgb(0, 0, 0);
+    font-size: 2.7rem;
+    font-family:sans-serif;
+}
+.p1{
+    font-family:'Times New Roman', Times, serif ;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.text1{
+    animation-delay: 0s;
+}
+.text2{
+    animation-delay: 3s;
+}
+.text3{
+    animation-delay: 6s;
+}
+.text4{
+    animation-delay: 9s;
+}
+.text .sp{
+    width:250px;
+    height: 3px;
+    background: red;
+    position: absolute;
+    top: 60px;
+    left: 0;
+}
+.text .p1{
+  position: absolute;
+  top: 80px;
+}
+.banner-1{
+    animation: slide1 12s linear infinite;
+}
+.banner-2{
+    animation: slide2 12s linear infinite;
+}
+.banner-3{
+    animation: slide3 12s linear infinite;
+}
+.banner-4{
+    animation: slide4 12s linear infinite;
+}
+
+@keyframes slide1{
+    0%{
+        visibility: visible;
+    }
+    25%{
+        visibility: hidden;
+    }
+    50%{
+        visibility: hidden;
+    }
+    75%{
+        visibility: hidden;
+    }
+    100%{
+        visibility: visible;
+    }
+}
+@keyframes slide2{
+    0%{
+        visibility: hidden;
+    }
+    25%{
+        visibility: hidden;
+    }
+    50%{
+        visibility: visible;
+    }
+    75%{
+        visibility: hidden;
+    }
+    100%{
+        visibility: hidden;
+    }
+}
+@keyframes slide3{
+    0%{
+        visibility: hidden;
+    }
+    25%{
+        visibility: hidden;
+    }
+    50%{
+        visibility: hidden;
+    }
+    75%{
+        visibility: visible;
+    }
+    100%{
+        visibility: hidden;
+    }
+}
+@keyframes slide4{
+    0%{
+        visibility: hidden;
+    }
+    25%{
+        visibility: hidden;
+    }
+    50%{
+        visibility: hidden;
+    }
+    75%{
+        visibility: hidden;
+    }
+    100%{
+        visibility: visible;
+    }
+}
+    </style>
+
+</head>
+<body class="bg-light text-black">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+     <!--<span class="navbar-brand" href="#">Logo</span>--!>
+     <img src="/static/chief-2.jpg" class="rounded-circle mr-2 mb-2" style="height:60px;width:60px;">
+     <h4 class="mr-auto">
+         <span class="navbar-text pl-2 ml-3">
+               Mess Managment
+         </span>
+      </h4>
+      <ul class="navbar-nav justify-content-end pl-auto">
+         <li class="nav-item pr-3">
+            <a class="nav-link" href="{{ url_for('Login')}}">Log In</a>
+         </li>
+        <li class="nav-item pr-3">
+            <a class="nav-link" href="{{ url_for('Register')}}">Register</a>
+        </li>
+      </ul>
+</nav>
+<div class="container-fluid mt-3">
+<h1>hi</h1>
+<div class="body">
+       <div class="banner-1">
+           <img class="ig" src="/static/b5.jpeg">
+         <div class="text text1">
+           <h1 class="h1">Sacrifices</h1>
+             <span class="sp"></span>
+              <p class="p1">Great achievement is usually born of great sacrifice, and is never the result of Selifiness.</p>
+         </div>
+        </div>
+
+        <div class="banner-2">
+            <img class="ig" src="/static/b1.jpeg">
+          <div class="text text2">
+            <h1 class="h1">Healthy Food</h1>
+               <span class="sp"> </span>
+               <p class="p1">Your diet is a bank account. Good food choices are good investments</p>
+          </div>
+         </div>
+
+         <div class="banner-3">
+            <img class="ig" src="/static/b3.jpeg">
+          <div class="text text3">
+            <h1 class="h1">Happiness</h1>
+               <span class="sp"> </span>
+               <p class="p1">Good food is the foundation of genuine happiness</p>
+          </div>
+         </div>
+
+         <div class="banner-4">
+            <img class="ig" src="/static/b8.jpeg">
+          <div class="text text4">
+            <h1 class="h1">Art of Chef</h1>
+               <span class="sp"></span>
+               <p class="p1">A recipe has no soul. You as the cook bring soul to the recipe.</p>
+          </div>
+         </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'authbase.html' %}
+{% block title %}
+Login
+{% endblock %}
+{% block link %}
+<ul class="navbar-nav justify-content-end pl-auto">
+         <li class="nav-item pr-3">
+            <a class="nav-link active" href="{{ url_for("Login") }}">Log In</a>
+         </li>
+        <li class="nav-item pr-3">
+            <a class="nav-link" href="{{ url_for("Register") }}">Register</a>
+        </li>
+</ul>
+{% endblock %}
+{% block form %}
+<div class=" w-25 mx-auto text-white" style="margin-top:18vh;">
+<form method="POST" class="form-register" style="color:white;">
+    {{ form.hidden_tag() }}
+    <h1 class="text-center mb-5">Login</h1>
+    {{ form.type.label() }}
+    {{ form.type(class="form-control mb-2") }}
+
+    {{ form.id.label() }}
+    {{ form.id(class="form-control mb-2") }}
+
+    {{ form.password.label() }}
+    {{ form.password(class="form-control") }}
+    <br>
+    {{ form.submit(class="btn btn-warning px-3 ",style="margin-left:9.5vw;") }}
+    </div>
+</form>
+{% endblock %}

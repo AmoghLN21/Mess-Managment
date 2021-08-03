@@ -1,0 +1,45 @@
+{% extends 'baseadmin.html' %}
+
+{% block title %}
+Admin
+{% endblock %}
+
+{% block link %}
+<li class="nav-item pr-3">
+    <a class="nav-link " href="{{ url_for('Admin') }}">Home</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link active" href="{{ url_for('Suppliers') }}">Suppliers</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Payment') }}">Payment</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Statistics') }}">Statistics</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link " href="{{ url_for('Queries')}}">Queries</a>
+</li>
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <h2>Products</h2>
+    <div class="card-columns">
+   {% for items in item %}
+       <div class="card shadow bg-warning " style="height:350px; width:300px; border-radius:30px;">
+           {% if items[1]== "M" %}
+           <img class="card-img-top " src="/static/mendefault.png" alt="Card image" style="height: 16vw;object-fit: cover;border-radius:30px;">
+           {% endif %}
+           {% if items[1]== "F" %}
+           <img class="card-img-top " src="/static/womendefault.png" alt="Card image" style="height: 16vw;object-fit: cover;border-radius:30px;">
+           {% endif %}
+           <div class="card-body bg-warning text-secondary">
+               <h4 class="card-title">{{ items[0] }}</h4>
+               <a href="#" class="btn btn-primary  float-right mb-4 mr-2">Present</a>
+               <a href="#" class="btn btn-primary  float-right mb-4 mr-2">Abesnt</a>
+           </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+{% endblock %}

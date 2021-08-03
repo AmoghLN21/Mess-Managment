@@ -1,0 +1,59 @@
+{% extends 'baseuser.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block link %}
+<li class="nav-item pr-3">
+    <a class="nav-link active" href="/home?id={{id}}&balance={{amt}}">Home</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="/contact?id={{id}}&balance={{amt}}">Contact Us</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="/history?id={{id}}&balance={{amt}}">History</a>
+</li>
+{% endblock %}
+
+{% block body %}
+<div class="row mt-5">
+    {% for items in item1 %}
+    <div class="col-3 ">
+       <div class="card shadow " style="height:350px; border-radius:30px;">
+           <img class="card-img-top " src="/static/{{ items.src }}" alt="Card image" style="height: 16vw;object-fit: cover;">
+           <div class="card-body bg-warning text-secondary">
+               <h4 class="card-title">{{ items.name }} <span class="float-right">{{ items.amount}}Rs</span></h4>
+               <!--<a href="#" class="btn btn-primary float-right mb-4">ORDER</a> --!>
+               <form action="/home?id={{id}}&balance={{amt}}&order_name={{items.name}}&order_value={{items.amount}}" method="POST">
+
+                   <input type="submit" value="Order" class="btn btn-primary float-right mb-4">
+               </form>
+           </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+<div class="row mt-3">
+    {% for items in item2 %}
+    <div class="col-3 ">
+       <div class="card shadow" style="height:350px; border-radius:20px"  >
+           <img class="card-img-top " src="/static/{{ items.src }}" alt="Card image" style="height: 16vw;object-fit: cover;">
+           <div class="card-body bg-warning text-secondary">
+               <h4 class="card-title">{{ items.name }} <span class="float-right">{{ items.amount}}Rs</span></h4>
+               <!--<a href="#" class="btn btn-primary float-right mb-4">ORDER</a> --!>
+               <form action="/home?id={{id}}&balance={{amt}}&order_name={{items.name}}&order_value={{items.amount}}" method="POST">
+
+                   <input type="submit" value="Order" class="btn btn-primary float-right mb-4">
+               </form>
+           </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+<div class="container" style="height:100px;">
+
+</div>
+{% endblock %}

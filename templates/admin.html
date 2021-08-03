@@ -1,0 +1,65 @@
+{% extends 'baseadmin.html' %}
+
+{% block title %}
+Admin
+{% endblock %}
+
+{% block link %}
+<li class="nav-item pr-3">
+    <a class="nav-link active" href="{{ url_for('Admin') }}">Home</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Payment') }}">Payment</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Statistics') }}">Statistics</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link " href="{{ url_for('Queries')}}">Queries</a>
+</li>
+{% endblock %}
+{% block body %}
+<div style="height:40vh;width:40vh;border-radius:30px" class="float-right mt-3">
+<div class="card bg-warning h-75">
+    <div class="card-body text-center">
+      <h3 class="card-title">Order Amount</h3>
+        <hr style="color:black;">
+        <h1 class="card-title pt-4">{{ mess_amount }} Rs</h1>
+    </div>
+</div>
+</div>
+<div class="container-fluid">
+  <img src="/static/chief-2.jpg" style="height:250px;" class="mt-5 rounded-circle">
+  <h1  class="pt-5">Todays Order</h1>
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+          <th>Order Id</th>
+          <th>Order Name</th>
+        <th>Room No</th>
+        <th>Student Id</th>
+        <th>Student Name</th>
+          <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for items in item %}
+      <tr>
+        <td>{{ items[0] }}</td>
+        <td>{{ items[1] }}</td>
+        <td>{{ items[2] }}</td>
+          <td>{{ items[3] }}</td>
+        <td>{{ items[4] }}</td>
+          <td>{{ items[5] }}</td>
+
+          <td><form action="/admin?order_id={{items[0]}}&value={{items[5]}}" method="POST">
+
+                   <input type="submit" value="Done" class="btn btn-warning float-right mb-4">
+          </form></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

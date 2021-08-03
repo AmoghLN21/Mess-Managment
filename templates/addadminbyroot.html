@@ -1,0 +1,42 @@
+{% extends 'baseroot.html' %}
+{% block title %}
+Add Admin
+{% endblock %}
+{% block link %}
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Root')}}">Home</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link active " href="{{ url_for('RootSuppliers')}}">Suppliers</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Admins')}}">Admins</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('RootStat')}}">Statistics</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link " href="{{ url_for('Queries')}}">Queries</a>
+</li>
+{% endblock %}
+{% block body %}
+<div class=" w-25 mx-auto text-dark">
+<form method="POST" class="form-register" style="color:black;">
+    {{ form.hidden_tag() }}
+    <h1 class="text-center mb-5">Add Admin</h1>
+    {{ form.name.label() }}
+    {{ form.name(class="form-control mb-2 ") }}
+    {{ form.id.label() }}
+    {{ form.id(class="form-control mb-2") }}
+    {{ form.age.label() }}
+    {{ form.age(class="form-control mb-2") }}
+    {{ form.sex.label() }}
+    {{ form.sex(class="form-control mb-2") }}
+    <br>
+    {{ form.submit(class="btn btn-warning px-3 ",style="margin-left:7.5vw;") }}
+</form>
+</div>
+<style>
+body {background-color: black;}
+</style>
+{% endblock %}

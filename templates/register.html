@@ -1,0 +1,41 @@
+{% extends 'authbase.html' %}
+{% block title %}
+Register
+{% endblock %}
+{% block link %}
+<ul class="navbar-nav justify-content-end pl-auto">
+         <li class="nav-item pr-3">
+            <a class="nav-link" href="{{ url_for("Login") }}">Log In</a>
+         </li>
+        <li class="nav-item pr-3">
+            <a class="nav-link active" href="{{ url_for("Register") }}">Register</a>
+        </li>
+</ul>
+{% endblock %}
+{% block form %}
+<div class=" w-25 mx-auto text-white">
+<form method="POST" class="form-register" style="color:white;">
+    {{ form.hidden_tag() }}
+    <h1 class="text-center mb-5">Create Account</h1>
+    {{ form.name.label() }}
+    {{ form.name(class="form-control mb-2 ") }}
+    {{ form.id.label() }}
+    {{ form.id(class="form-control mb-2") }}
+    {{ form.branch.label() }}
+    {{ form.branch(class="form-control mb-2") }}
+    {{ form.age.label() }}
+    {{ form.age(class="form-control mb-2") }}
+    {{ form.sex.label() }}
+    {{ form.sex(class="form-control mb-2") }}
+    {{ form.roomno.label() }}
+    {{ form.roomno(class="form-control mb-2") }}
+    {{ form.email.label() }}
+    {{ form.email(class="form-control mb-2") }}
+    {{ form.password.label() }}
+    {{ form.password(class="form-control mb-2") }}
+    {{ form.cpassword.label() }}
+    {{ form.cpassword(class="form-control") }}
+    <br>
+    {{ form.submit(class="btn btn-warning px-3 ",style="margin-left:7.5vw;") }}
+</form>
+{% endblock %}

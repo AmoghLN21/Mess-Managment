@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        {% block title %}
+
+        {% endblock  %}
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-light text-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top mb-4">
+    <img src="/static/chief-2.jpg" class="rounded-circle mr-2 mb-2" style="height:60px;width:60px;">
+   <h4 class="mr-auto">
+       <span class="navbar-text ">
+               Mess Managment
+       </span>
+   </h4>
+    <ul class="navbar-nav justify-content-end pl-auto">
+        <li class="nav-item pr-3">
+         <span class="navbar-text text-light ">
+               {{ user_name }}
+       </span>
+
+        </li>
+        <li class="nav-item pr-3">
+         <span class="navbar-text text-light ">
+              Balance : {{ amt }} Rs
+       </span>
+        </li>
+        {% block link %}
+
+        {% endblock %}
+        <li class="nav-item pr-3">
+            <a class="nav-link" href="{{ url_for('mess_managment')}}">Log Out</a>
+        </li>
+   </ul>
+</nav>
+<div class="container-fluid mt-3">
+<h1>hi</h1>
+{% with messages = get_flashed_messages(with_categories=true) %}
+   {% if messages %}
+          {% for categories,message in messages %}
+              <div class="alert alert-danger alert-dismissible container">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{ message }}</strong>
+               </div>
+
+          {% endfor %}
+   {% endif %}
+{% endwith %}
+{% block body %}
+
+{% endblock %}
+</div>
+
+</body>
+</html>

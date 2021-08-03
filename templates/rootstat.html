@@ -1,0 +1,26 @@
+{% extends 'baseroot.html' %}
+
+{% block title %}
+Statistics
+{% endblock %}
+
+{% block link %}
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Root')}}">Home</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link " href="{{ url_for('RootSuppliers')}}">Suppliers</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Admins')}}">Admins</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link active" href="{{ url_for('RootStat')}}">Statistics</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link " href="{{ url_for('Queries')}}">Queries</a>
+</li>
+{% endblock %}
+{% block body %}
+
+{% endblock %}

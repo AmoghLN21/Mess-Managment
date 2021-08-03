@@ -1,0 +1,154 @@
+{% extends 'baseforcontact.html' %}
+
+{% block title %}
+Contact
+{% endblock %}
+{% block head %}
+<style>
+    body{
+    background-color:rgb(9, 2, 24);
+    padding: 0;
+    margin-left: 80px;
+}
+
+#gd{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-gap: 12px;
+    width: 100%;
+}
+h1{
+    color: white;
+    font-family:cursive;
+    font-weight: 1000;
+    font-size: 1.2cm;
+}
+
+
+label{
+    position: absolute;
+    color: white;
+    margin-top: 40px;
+    font-family:cursive;
+    font-size: 1.5rem;
+}
+input{
+    outline: none;
+    border: none;
+    background: transparent;
+    font-family:cursive;
+    color: white;
+    width: 400px;
+    margin-top: 20px;
+}
+p{
+    position: absolute;
+    height: 1px;
+    background: rgb(76, 72, 72);
+    width: 400px;
+    margin-top: 3px;
+}
+.usn{
+    position: relative;
+    top: 120px;
+}
+.mail{
+    position: relative;
+    top: 140px;
+}
+.veri{
+    position: absolute;
+    top:470px;
+    font-size: 1rem;
+    margin-left: 20px;
+}
+ .in{
+    margin-left: -220px;
+    margin-top: -35px;
+}
+.msg-1{
+    position: absolute;
+    top: 100px;
+    left:45%;
+}
+textarea{
+    background: transparent;
+    outline: none;
+    border: none;
+    margin-top:10px;
+    color:white;
+}
+.line{
+    width: 2px;
+    height: 550px;
+    background: rgb(76, 72, 72);
+    position: absolute;
+    margin-top:-390px;
+    padding-top: 100px;
+    left: 40%;
+}
+button{
+    position: relative;
+    top: 110px;
+    left: 535px;
+    padding: 15px;
+    width: 660px;
+    cursor: pointer;
+    color:white;
+    background-color: rgba(240, 99, 48, 0.849);
+    border: none;
+}
+</style>
+
+{% endblock %}
+{% block link %}
+
+<li class="nav-item pr-3">
+    <a class="nav-link " href="/home?id={{id}}&balance={{amt}}">Home</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link active" href="/contact?id={{id}}&balance={{amt}}">Contact Us</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="/history?id={{id}}&balance={{amt}}">History</a>
+</li>
+{% endblock %}
+{% block body %}
+<div class="container-fluid mt-5">
+    <header >
+        <h1>Write us</h1>
+    </header>
+    <div id="gd">
+        <span style="width: 100px;height: 2px;background: red;position: absolute;"></span>
+
+
+        <form action="{{ url_for("Contact_Us")}}" method="POST">
+             <label>
+                 Order-Id <br>
+                 <input type="text" placeholder="Enter your order-id" name="order-id">
+                 <p> </p>
+             </label>
+              <br><br>
+             <label class="usn">
+                USN <br>
+                <input type="text" placeholder="Enter your usn" name="usn">
+                <p> </p>
+            </label>
+            <br><br>
+            <label class="mail">
+                Email <br>
+                <input type="email" placeholder="Enter your mail" name="email">
+                <p> </p>
+            </label>
+            <div class="line pt-2"> </div>
+            <label class="msg-1 mt-5">
+                Message <br>
+                <textarea cols="90" rows="33" placeholder="Write text here" name="text"></textarea>
+            </label>
+
+            <button>SEND MESSAGE</button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

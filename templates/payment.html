@@ -1,0 +1,79 @@
+{% extends 'baseadmin.html' %}
+
+{% block title %}
+Admin
+{% endblock %}
+
+{% block link %}
+<li class="nav-item pr-3">
+    <a class="nav-link " href="{{ url_for('Admin') }}">Home</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link active" href="{{ url_for('Payment') }}">Payment</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Statistics') }}">Statistics</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link " href="{{ url_for('Queries')}}">Queries</a>
+</li>
+{% endblock %}
+{% block body %}
+<div class="container mb-2" style="padding-left:42%">
+<input  id="myInput" onkeyup="myFunction()" type="text" placeholder="   Search ...... " style="width:25vw;height:5vh;" class="mt-3">
+<button type="button" class="btn btn-warning mb-1" style="height:5vh;width:6vw;border-radius:5px;border-color:black;border-width:1px;">Search</button>
+</div>
+<table class="table table-dark table-hover" id="myTable">
+    <thead>
+      <tr>
+          <th>Student Id</th>
+         <th>Room No</th>
+         <th>Student Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Branch</th>
+          <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody >
+    {% for items in item %}
+      <tr>
+        <td>{{ items[0] }}</td>
+        <td>{{ items[1] }}</td>
+        <td>{{ items[2] }}</td>
+          <td>{{ items[3] }}</td>
+          <td>{{ items[4] }}</td>
+          <td>{{ items[5] }}</td>
+          <td>{{ items[6] }}</td>
+          <td><form action="/admin/payment?student_id={{items[0]}}" method="POST">
+
+                   <input type="submit" value="Paid" class="btn btn-warning float-right mb-4">
+          </form></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+{% endblock %}

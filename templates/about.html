@@ -1,0 +1,63 @@
+{% extends 'baseuser.html' %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block link %}
+<li class="nav-item pr-3">
+    <a class="nav-link " href="{{ url_for('Home') }}">Home</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link active" href="{{ url_for('About') }}">About</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for( 'Contact_Us') }}">Contact Us</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="{{ url_for('Help') }}">Help</a>
+</li>
+<li class="nav-item pr-3">
+    <a class="nav-link" href="/history?{{ id }}">History</a>
+</li>
+{% endblock %}
+
+{% block body %}
+
+    <div class="card-deck">
+       <div class="card" >
+           <img class="card-img-top pb-5" src="/static/Idly-Vada.png" alt="Card image">
+           <div class="card-body">
+               <h4 class="card-title">John Doe</h4>
+               <p class="card-text">Some example text.</p>
+               <a href="#" class="btn btn-primary ">See Profile</a>
+           </div>
+        </div>
+        <div class="card" >
+           <img class="card-img-top pb-5" src="/static/Idly-Vada.png" alt="Card image">
+           <div class="card-body">
+               <h4 class="card-title">John Doe</h4>
+               <p class="card-text">Some example text.</p>
+               <a href="#" class="btn btn-primary ">See Profile</a>
+           </div>
+        </div>
+        <div class="card" >
+           <img class="card-img-top pb-5" src="/static/Idly-Vada.png" alt="Card image">
+           <div class="card-body">
+               <h4 class="card-title">John Doe</h4>
+               <p class="card-text">Some example text.</p>
+               <a href="#" class="btn btn-primary ">See Profile</a>
+           </div>
+        </div>
+        <div class="card" >
+           <img class="card-img-top pb-5" src="/static/Idly-Vada.png" alt="Card image">
+           <div class="card-body">
+               <h4 class="card-title">John Doe</h4>
+               <p class="card-text">Some example text.</p>
+               <a href="#" class="btn btn-primary ">See Profile</a>
+           </div>
+        </div>
+
+    </div>
+
+{% endblock %}
